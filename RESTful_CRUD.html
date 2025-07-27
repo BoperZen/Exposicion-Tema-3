@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Web RESTful (CRUD)</title>
+</head>
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://www.colegiocienciaseconomicas.cr/boletin/logos-aliados/logo-utn.png" alt="LogoUniversidad" width="40" height="30" class="d-inline-block align-text-top">
+                Web RESTful (CRUD)
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRestful" aria-controls="navbarRestful" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarRestful">
+                <ul class="ms-auto navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ApiRest.html">API Rest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" aria-current="page" href="RESTful_CRUD.html">Web RESTful (CRUD) </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="AJAX.html">Asynchronous JavaScript (AJAX)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="MensajeJSON.html">Estructura de Mensaje JSON</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="container-md">
+        <!-- GET -->
+        <h3>GET (Read)</h3>
+        <p>Obtiene los datos de un recurso.</p>
+        <pre><code>fetch('https://jsonplaceholder.typicode.com/posts/1')
+.then(res => res.json())
+.then(data => document.getElementById('result-get').textContent = JSON.stringify(data, null, 2));</code></pre>
+        <button class="btn btn-primary mb-2" onclick="Get()">Ejecutar GET</button>
+        <pre id="result-get">[Resultado]</pre>
+        <!-- POST -->
+        <h3>POST (Create)</h3>
+        <p>Crea un nuevo recurso en el servidor.</p>
+        <pre><code>fetch('https://jsonplaceholder.typicode.com/posts', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ title: 'foo', body: 'bar', userId: 1 })
+})
+.then(res => res.json())
+.then(data => document.getElementById('result-post').textContent = JSON.stringify(data, null, 2));</code></pre>
+        <button class="btn btn-success mb-2" onclick="Post()">Ejecutar POST</button>
+        <pre id="result-post">[Resultado]</pre>
+        <!-- PUT -->
+        <h3>PUT (Update)</h3>
+        <p>Actualiza completamente un recurso existente.</p>
+        <pre><code>fetch('https://jsonplaceholder.typicode.com/posts/1', {
+method: 'PUT',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ id: 1, title: 'foo', body: 'bar', userId: 1 })
+})
+.then(res => res.json())
+.then(data => document.getElementById('result-put').textContent = JSON.stringify(data, null, 2));</code></pre>
+        <button class="btn btn-warning mb-2" onclick="Put()">Ejecutar PUT</button>
+        <pre id="result-put">[Resultado]</pre>
+        <!-- DELETE -->
+        <h3>DELETE (Delete)</h3>
+        <p>Elimina un recurso específico.</p>
+        <pre><code>fetch('https://jsonplaceholder.typicode.com/posts/1', { method: 'DELETE' })
+.then(res => document.getElementById('result-delete').textContent = 'Recurso eliminado, código: ' + res.status);</code></pre>
+        <button class="btn btn-danger mb-2" onclick="Delete()">Ejecutar DELETE</button>
+        <pre id="result-delete">[Resultado]</pre>
+    </main>
+    <script src="funcion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

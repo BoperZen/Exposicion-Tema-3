@@ -1,0 +1,24 @@
+.nav-item:hover{
+    text-shadow: 1px 1px 1px #63747B;
+}
+
+/* API Rest */
+
+/* Web RESTful (CRUD) */
+
+.correcto {
+    background-color: #d4edda;
+}
+.incorrecto {
+    background-color: #f8d7da;
+}
+
+pre{
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Asynchronous JavaScript (AJAX) */
+
+/* Estructura de Mensaje JSON */
