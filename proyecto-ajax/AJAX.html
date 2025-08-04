@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Asynchronous JavaScript (AJAX)</title>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://www.colegiocienciaseconomicas.cr/boletin/logos-aliados/logo-utn.png"
+                    alt="LogoUniversidad" width="40" height="30" class="d-inline-block align-text-top">
+                Asynchronous JavaScript (AJAX)
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRestful"
+                aria-controls="navbarRestful" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarRestful">
+                <ul class="ms-auto navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ApiRest.html">API Rest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="RESTful_CRUD.html">Web RESTful (CRUD) </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="proyecto-ajax/AJAX.html">Asynchronous JavaScript (AJAX)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="MensajeJSON.html">Estructura de Mensaje
+                            JSON</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div class="d-flex min-vh-100" id="main-container">
+
+
+            <aside class="bg-dark text-white py-3 sidebar">
+                <div class="text-center mb-4">
+                    <img src="imgs/237_1.jpg" alt="Logo" width="100" height="70" class="rounded-circle mb-4">
+                </div>
+
+                <hr class="text-secondary my-3">
+
+                <div class="text-center mb-4">
+                    <a class="navbar-brand text-white fs-5" href="#">
+                        <i class="fas fa-code"></i> Menu
+                    </a>
+                </div>
+
+                <ul class="nav nav-pills flex-column" id="menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="inicio">
+                            <i class="fas fa-home me-2"></i> Inicio
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="publicaciones">
+                            <i class="fas fa-newspaper me-2"></i> Publicaciones
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="formulario">
+                            <i class="fas fa-paper-plane me-2"></i> Formulario
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="superheroes">
+                            <i class="fas fa-bolt me-2"></i> Superhéroes
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="clima">
+                            <i class="fas fa-cloud-sun me-2"></i> Clima
+                        </a>
+                    </li>
+
+                </ul>
+
+            </aside>
+
+            <main class="flex-grow-1 p-4" id="contenido">
+                <h2 class="text-muted"> Cargando...</h2>
+            </main>
+
+        </div>
+
+        <script src="js/main.js"></script>
+    </main>
+    <script src="funcion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
