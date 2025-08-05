@@ -4,6 +4,54 @@
 
 /* API Rest */
 
+.btn-naranja {
+    background-color: orange !important;
+    color: black !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.btn-naranja:hover,
+.btn-naranja:focus,
+.btn-naranja:active {
+    background-color: orange !important;
+    color: black !important;
+    box-shadow: none !important;
+}
+
+.btn-azul {
+    background-color: #007bff !important; /* azul Bootstrap estándar */
+    color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.btn-azul:hover,
+.btn-azul:focus,
+.btn-azul:active {
+    background-color: #003d7e !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+.btn-mostaza {
+    background-color: #a907c9 !important; /* tono mostaza */
+    color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+
+.btn-mostaza:hover,
+.btn-mostaza:focus,
+.btn-mostaza:active {
+    background-color: #a907c9 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
 /* Web RESTful (CRUD) */
 
 .correcto {

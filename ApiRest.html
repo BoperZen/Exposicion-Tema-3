@@ -36,9 +36,109 @@
         </div>
     </header>
     <main class="container-md">
-        <!-- Codigo acá -->
+            <section>
+                <h2>Servicios Web RESTful - APIs REST</h2>
+                <p>
+                    Los Servicios Web RESTful, también conocidos como API REST, constituyen un estilo arquitectónico para diseñar
+                    servicios de red ligeros y escalables. Según Roy Fielding, quien propuso REST (Representational State Transfer)
+                    en su tesis doctoral en el año 2000, REST define un conjunto de restricciones para la creación de sistemas
+                    distribuidos y escalables.
+                </p>
+                <p>
+                    Un servicio RESTful expone recursos, los cuales son identificables de forma única a través de URLs. Estos
+                    recursos se manipulan mediante operaciones estándar del protocolo HTTP, como GET (leer información), POST
+                    (crear), PUT (actualizar) y DELETE (eliminar).
+                </p>
+                <p>
+                    Un servicio web RESTful es una arquitectura de software que utiliza HTTP como protocolo de transporte, facilitando la
+                    interoperabilidad entre sistemas
+                    heterogéneos. Así, un API RESTful actúa como intermediario entre cliente y servidor, permitiendo
+                    la interacción de múltiples aplicaciones a través de la web. Los Servicios Web RESTful constituyen un pilar
+                    fundamental para la comunicación entre sistemas distribuidos en la web actual, gracias a su flexibilidad, bajo
+                    acoplamiento y uso de tecnologías abiertas.
+                </p>
+            </section>
+
+            <!-- Fetch API -->
+            <h3>Fetch API</h3>
+            <p>
+                El método <strong>Fetch</strong> es una función nativa de JavaScript que permite realizar solicitudes HTTP para
+                interactuar con APIs RESTful, facilitando la comunicación entre cliente y servidor de forma sencilla y moderna.
+            </p>
+            <p>
+                Fetch es parte del estándar Fetch API, diseñado para reemplazar tecnologías antiguas como
+                XMLHttpRequest, proporcionando una interfaz basada en promesas, lo que mejora la legibilidad y el
+                manejo asíncrono del código.
+            </p>
+            <pre><code>fetch('https://jsonplaceholder.typicode.com/posts/5')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result-fetch').textContent = JSON.stringify(data, null, 2);
+                });</code></pre>
+            <button class="btn btn-naranja mb-2" onclick="LlamadoFetch()">Llamar API con Fetch</button>
+            <pre id="result-fetch">[Resultado]</pre>
+
+            <!-- XMLHttpRequest -->
+            <h3>XMLHttpRequest</h3>
+            <p>
+                El objeto <strong>XMLHttpRequest (XHR)</strong> es una API proporcionada por los navegadores web para realizar
+                solicitudes HTTP de manera asíncrona, lo que permite que las páginas web interactúen con servidores sin necesidad de
+                recargar la página completa.
+            </p>
+            <p>
+                Fue uno de los primeros mecanismos ampliamente adoptados para consumir servicios web y APIs RESTful, y su uso
+                popularizó el término <em>AJAX</em> (Asynchronous JavaScript and XML).
+            </p>
+            <p>
+                A diferencia de Fetch, XMLHttpRequest es más antiguo y posee una interfaz basada en eventos y callbacks
+                para manejar las respuestas, lo que puede complicar la escritura y mantenimiento del código en aplicaciones
+                complejas.
+            </p>
+            <pre><code>var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/users/3');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById('result-xhr').textContent = xhr.responseText;
+                }
+            };
+            xhr.send();</code></pre>
+            <button class="btn btn-azul mb-2" onclick="LlamadoXHR()">Llamar API con XMLHttpRequest</button>
+            <pre id="result-xhr">[Resultado]</pre>
+
+            <!-- jQuery  -->
+            <h3>jQuery </h3>
+            <p>
+                jQuery es una biblioteca de JavaScript ampliamente utilizada que simplifica la manipulación del DOM, el manejo de
+                eventos y las interacciones con servidores mediante solicitudes HTTP. Para realizar llamados a APIs REST, jQuery
+                ofrece métodos como <code>$.ajax()</code>, <code>$.get()</code>, y <code>$.post()</code>, que permiten consumir
+                servicios web de manera sencilla y con una sintaxis más amigable que la nativa XMLHttpRequest.
+            </p>
+            <p>
+                El uso de jQuery para realizar requests a APIs REST ha sido popular por años debido a su soporte en múltiples
+                navegadores, su manejo integrado de callbacks y su capacidad para manejar diferentes formatos de respuesta, como
+                JSON y XML.
+            </p>
+            <p>
+                El método principal para llamadas AJAX en jQuery es <code>$.ajax()</code>, que permite realizar peticiones HTTP
+                configurables, incluyendo tipo de método, URL, datos enviados, encabezados, tipo de datos esperado, y funciones para
+                manejar éxito, error y finalización.
+            </p>
+            <pre><code>$.ajax({
+                url: 'https://jsonplaceholder.typicode.com/comments/7',
+                method: 'GET',
+                success: function(data) {
+                    $('#result-jquery').text(JSON.stringify(data, null, 2));
+                },
+                error: function(xhr, status, error) {
+                    $('#result-jquery').text('Error: ' + error);
+                }
+            });</code></pre>
+            <button class="btn btn-mostaza mb-2" onclick="LlamadoJquery()">Llamar API con jQuery</button>
+            <pre id="result-jquery">[Resultado]</pre>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="funcion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
 </body>
 </html>
