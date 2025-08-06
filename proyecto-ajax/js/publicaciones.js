@@ -1,9 +1,13 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Selecciona el contenedor donde mostraremos las publicaciones
   const container = document.querySelector("#contenido");
 
+  // Se aplica el AJAX para obtener los datos de publicaciones.json de forma asíncrona
   fetch("js/publicaciones.json")
-    .then(res => res.json())
+    .then(res => res.json()) // Se convierte la respuesta a JSON
     .then(data => {
+      // Generación de las tarjetas de publicaciones dinámicamente
       const cards = data.map((pub, index) => `
         <div class="col">
           <div class="card h-100 shadow-sm">
@@ -18,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `).join("");
-
+      
       container.innerHTML = `
         <section class="container">
           <h2 class="mb-4 text-primary-emphasis">Últimas Publicaciones</h2>
@@ -27,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </section>
 
-        <!-- Modal -->
+        <!-- Modal para mostrar el contenido completo de la publicación -->
         <div class="modal fade" id="modalPublicacion" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
           <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -43,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
-   
+      
       const botones = container.querySelectorAll("button[data-index]");
       botones.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -57,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch(err => {
+      // Si ocurre un error en la petición AJAX, muestro un mensaje de error
       container.innerHTML = `<div class="alert alert-danger">No se pudieron cargar las publicaciones.</div>`;
       console.error("Error al cargar publicaciones:", err);
     });
