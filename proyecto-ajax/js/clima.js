@@ -9,13 +9,13 @@ function obtenerClima(ciudad, callback) {
     xhr.onload = function () {
         if (xhr.status === 200) {
             const data = JSON.parse(xhr.responseText);
-            callback(null, data); // Llamo al callback con los datos para saber que todo salió bien
+            callback(null, data); // Callback con los datos para saber que todo salió bien
         } else {
-            callback(`Error: ${xhr.status} ${xhr.statusText}`); // Llamamos al callback con el error si saber que hubo un problema
+            callback(`Error: ${xhr.status} ${xhr.statusText}`); // Callback con el error si saber que hubo un problema
         }
     };
     xhr.onerror = function () {
-        callback("Error de red al intentar conectar con la API."); // Llamamos al Callback en caso de error de red
+        callback("Error de red al intentar conectar con la API."); // Callback en caso de error de red
     };
     xhr.send();
 }
