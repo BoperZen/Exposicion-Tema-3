@@ -1,3 +1,4 @@
+
 window.initFormulario = function() {
   const form = document.getElementById("formContacto");
   if (!form) return;
@@ -18,39 +19,34 @@ window.initFormulario = function() {
       mensaje: document.getElementById("mensaje").value.trim()
     };
 
-    // Mostrar mensaje mientras se envía
+    // Mostrar el mensaje mientras se envía
     respuesta.innerHTML = `<div class="alert alert-info">Enviando mensaje...</div>`;
 
-    // Crear objeto XMLHttpRequest
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://jsonplaceholder.typicode.com/posts", true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-    // Evento cuando se complete
-    xhr.onload = function () {
-      if (xhr.status === 201 || xhr.status === 200) {
-        const data = JSON.parse(xhr.responseText);
-        console.log("Respuesta recibida:", data);
-
-        respuesta.innerHTML = `
-          <div class="alert alert-success">Mensaje enviado correctamente. Gracias, ${datos.nombre}.</div>
-        `;
-        form.reset();
-        form.classList.remove("was-validated");
-      } else {
-        respuesta.innerHTML = `
-          <div class="alert alert-danger">Ocurrió un error al enviar el mensaje.</div>
-        `;
-      }
-    };
-
-    xhr.onerror = function () {
+    // Aquí aplicamos AJAX usando fetch para enviar los datos al servidor
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8"
+      },
+      body: JSON.stringify(datos)
+    })
+    .then(res => {
+      if (!res.ok) throw new Error("Error en la red");
+      return res.json();
+    })
+    .then(data => {
+      console.log("Respuesta recibida:", data);
       respuesta.innerHTML = `
-        <div class="alert alert-danger">Error de conexión. Inténtalo más tarde.</div>
+        <div class="alert alert-success">Mensaje enviado correctamente. Gracias, ${datos.nombre}.</div>
       `;
-    };
-
-    // Enviar los datos
-    xhr.send(JSON.stringify(datos));
+      form.reset();
+      form.classList.remove("was-validated");
+    })
+    .catch(err => {
+      respuesta.innerHTML = `
+        <div class="alert alert-danger">Error al enviar el formulario.</div>
+      `;
+      console.error("Error en el formulario:", err);
+    });
   });
 }
